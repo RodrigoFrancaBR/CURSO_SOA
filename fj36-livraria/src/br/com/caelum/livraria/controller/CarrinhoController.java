@@ -35,8 +35,9 @@ public class CarrinhoController{
 	EntityManager manager;
 	
 	@RequestMapping("/adicionarItem")
-	public String adicionarItemNoCarrinho(@RequestParam("id") Integer idLivro, 
-											@RequestParam("formatoLivro") Formato formato)  {
+	public String adicionarItemNoCarrinho(
+			@RequestParam("id") Integer idLivro, 
+			@RequestParam("formatoLivro") Formato formato)  {
 		
 		Livro livro = manager.find(Livro.class, idLivro);
 		carrinho.adicionarOuIncremantarQuantidadeDoItem(livro, formato);
@@ -45,9 +46,10 @@ public class CarrinhoController{
 	}
 
 	@RequestMapping("/removerItem")
-	public String removerItemNoCarrinho(@RequestParam("codigo") String codigo, 
-											@RequestParam("formato") Formato formato, 
-													RedirectAttributes modelo) {
+	public String removerItemNoCarrinho(
+			@RequestParam("codigo") String codigo, 
+			@RequestParam("formato") Formato formato,
+			RedirectAttributes modelo) {
 		
 		this.carrinho.removerItemPeloCodigoEFormato(codigo, formato);
 		
@@ -57,7 +59,8 @@ public class CarrinhoController{
 	}
 	
 	@RequestMapping("/calcularCep")
-	public String calcularCep(@RequestParam("cepDestino") String novoCepDestino) {
+	public String calcularCep(
+			@RequestParam("cepDestino") String novoCepDestino) {
 		
 		this.carrinho.atualizarFrete(novoCepDestino);
 
@@ -66,9 +69,10 @@ public class CarrinhoController{
 	
 	
 	@RequestMapping("/criarPagamento")
-	public String criarPagamento(String numeroCartao, 
-								 String titularCartao, 
-								 RedirectAttributes modelo) {
+	public String criarPagamento(
+			String numeroCartao, 
+			String titularCartao, 
+			RedirectAttributes modelo) {
 	
         if(!ehStringVazia(titularCartao) && !ehStringVazia(numeroCartao)){
 			carrinho.setNumeroCartao(numeroCartao);
@@ -128,7 +132,7 @@ public class CarrinhoController{
 	public String listar() throws Exception {
 		
 		//verificacao do estoque aqui
-		
+		this.carrinho.verificarDisponibilidadeDosIntesComRmi();
 		return JSP_CARRINHO_LISTAR;
 	}
 	

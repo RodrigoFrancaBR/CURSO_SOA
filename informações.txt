@@ -1,0 +1,10 @@
+componente => Spring	como	container	de	inversão	de	controle	 (IoC)
+Spring	MVC
+como	framework	MVC	e	o	Hibernate/JPA	para	acesso	ao	banco	de	dados	MySQL.
+Os	 objetos	 Java	 "vivem"	 dentro	 de	 uma	 Java	 Virtual	 Machine	 (JVM).	
+Para	que	os	objetos	possam	existir	dentro	de	uma	JVM,	é	necessário	que	a
+classe	desses	objetos	esteja	carregada.	
+No	Java,	a	JVM	servidora,	que	tem	o	objeto	original,	copia	os	dados	desse	objeto.	Essa	cópia	é	criada
+em	formato	binário	e	pode	ser	enviada	até	uma	JVM	cliente	que	monta	um	novo	objeto	com	os	dados	da
+cópia.	 O	 processo	 de	 criar	 uma	 cópia	 em	 formato	 binário	 dos	 dados	 de	 um	 objeto	 é	 chamado
+serialização.

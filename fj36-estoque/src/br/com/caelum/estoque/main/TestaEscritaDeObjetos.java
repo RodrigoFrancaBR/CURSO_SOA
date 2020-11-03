@@ -6,12 +6,19 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import br.com.caelum.estoque.rmi.ItemEstoque;
 
 public class TestaEscritaDeObjetos {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
+		
+		Locale l = Locale.getDefault();
+		
+		System.out.println(l);
+				
+				
 
 		/**
 		 * Exemplo 1
