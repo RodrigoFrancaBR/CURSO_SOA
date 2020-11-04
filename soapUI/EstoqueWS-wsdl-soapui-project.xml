@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b539a162-0875-43cf-b7a9-5564203d58e4" activeEnvironment="Default" name="EstoqueWS?wsdl" resourceRoot="" soapui-version="5.6.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="b7af6a7b-0afe-492b-8228-20593d579231" wsaVersion="NONE" name="EstoqueWSServiceSoapBinding" type="wsdl" bindingName="{http://ws.estoque.caelum.com.br/}EstoqueWSServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/fj36-webservice/EstoqueWS?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/fj36-webservice/EstoqueWS?wsdl"><con:part><con:url>http://localhost:8080/fj36-webservice/EstoqueWS?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="EstoqueWSService" targetNamespace="http://ws.estoque.caelum.com.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.estoque.caelum.com.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://ws.estoque.caelum.com.br/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="ItensPeloCodigo" type="tns:ItensPeloCodigo"/>
+      <xs:element name="ItensPeloCodigoResponse" type="tns:ItensPeloCodigoResponse"/>
+      <xs:complexType name="ItensPeloCodigo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="codigo" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ItensPeloCodigoResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ItemEstoque" type="tns:itemEstoque"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="itemEstoque">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:string"/>
+          <xs:element minOccurs="0" name="quantidade" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ItensPeloCodigoResponse">
+    <wsdl:part element="tns:ItensPeloCodigoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ItensPeloCodigo">
+    <wsdl:part element="tns:ItensPeloCodigo" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EstoqueWS">
+    <wsdl:operation name="ItensPeloCodigo">
+      <wsdl:input message="tns:ItensPeloCodigo" name="ItensPeloCodigo"></wsdl:input>
+      <wsdl:output message="tns:ItensPeloCodigoResponse" name="ItensPeloCodigoResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EstoqueWSServiceSoapBinding" type="tns:EstoqueWS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ItensPeloCodigo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ItensPeloCodigo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ItensPeloCodigoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EstoqueWSService">
+    <wsdl:port binding="tns:EstoqueWSServiceSoapBinding" name="EstoqueWSPort">
+      <soap:address location="http://localhost:8080/fj36-webservice/EstoqueWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/fj36-webservice/EstoqueWS</con:endpoint></con:endpoints><con:operation id="66501e4c-8357-43a3-8ba4-9ce5d142f5f0" isOneWay="false" action="" name="ItensPeloCodigo" bindingOperationName="ItensPeloCodigo" type="Request-Response" outputName="ItensPeloCodigoResponse" inputName="ItensPeloCodigo" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d33e758a-e97a-4d65-8113-923d20437836" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/fj36-webservice/EstoqueWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.estoque.caelum.com.br/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ws:ItensPeloCodigo>\r
+         <!--Zero or more repetitions:-->\r
+         <codigo>ARQ</codigo>\r
+      </ws:ItensPeloCodigo>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.estoque.caelum.com.br/EstoqueWS/ItensPeloCodigo"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
